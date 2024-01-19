@@ -6,13 +6,16 @@ Source: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be77
 Title: Fox's islands
 */
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import islandScene from '../assets/3d/island.glb';
+import {a} from '@react-spring/three';
 
 const Island = (props) => {
   const { nodes, materials } = useGLTF("/island.glb");
   return (
-    <group {...props} dispose={null}>
+    <a.group {...props} dispose={null}>
       <mesh
         castShadow
         receiveShadow
